@@ -1,4 +1,12 @@
-import { Component, NgModule } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  NgModule,
+  OnInit,
+  viewChild,
+  ViewChild,
+} from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlComponent } from '../../../shared/control/control.component';
 import { FormsModule } from '@angular/forms';
@@ -9,8 +17,27 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './new-ticket.component.html',
   styleUrl: './new-ticket.component.css',
 })
-export class NewTicketComponent {
-  onSubmit() {
-    console.log('Submitted');
+export class NewTicketComponent implements OnInit, AfterViewInit {
+  ngOnInit(): void {
+    console.log('OnINIT');
+    console.log(this.form()?.nativeElement);
   }
+  ngAfterViewInit(): void {
+    console.log('After View INIT');
+    console.log(this.form()?.nativeElement);
+  }
+  // @ViewChild('form') form?: ElementRef<HTMLFormElement>;
+  // onSubmit(titleInput: HTMLInputElement) {
+  //   const enteredTitle = titleInput.value;
+  //   console.log('Submitted');
+  // }
+  private form = viewChild<ElementRef<HTMLFormElement>>('form');
+  onSubmit(titleInput: string, textInput: string) {
+    console.log(titleInput, textInput);
+    this.form()?.nativeElement.reset();
+  }
+  // onSubmit(titleInput: string, textInput: string, form: HTMLFormElement) {
+  //   console.log(titleInput, textInput);
+  //   form.reset();
+  // }
 }
