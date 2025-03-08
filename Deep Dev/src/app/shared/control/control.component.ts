@@ -1,5 +1,7 @@
 import {
   AfterContentInit,
+  afterNextRender,
+  afterRender,
   Component,
   contentChild,
   ContentChild,
@@ -26,6 +28,14 @@ export class ControlComponent implements AfterContentInit {
   ngAfterContentInit(): void {
     console.log('ngAfterContentInit');
     console.log(this.control);
+  }
+  constructor() {
+    afterRender(() => {
+      console.log('afterREnder');
+    });
+    afterNextRender(() => {
+      console.log('afterNextRender');
+    });
   }
   private el = inject(ElementRef);
   @ContentChild('input') private control?: ElementRef<
