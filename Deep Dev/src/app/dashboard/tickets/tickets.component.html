@@ -1,7 +1,11 @@
 <div>
   <ul>
     @for(ticket of tickets ; track ticket.id){
-    <li><app-ticket [data]="ticket" /> -{{ $first }}</li>
+    <li>
+      <app-ticket [data]="ticket" (close)="onCloseTicket(ticket.id)" /> -{{
+        $first
+      }}
+    </li>
     }@empty {
     <p>No Tichets available</p>
     }
