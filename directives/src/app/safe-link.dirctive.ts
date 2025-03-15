@@ -1,9 +1,11 @@
 import { Directive, ElementRef, inject, input } from '@angular/core';
+import { LogDirective } from './log.directive';
 
 @Directive({
   //selector: 'app-safe-link',
   selector: 'a[appSafeLink]',
   standalone: true,
+  hostDirectives: [LogDirective],
   host: {
     '(click)': 'onConfirmLeavePage($event)',
   },
