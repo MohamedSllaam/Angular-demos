@@ -1,0 +1,41 @@
+<app-header />
+<main>
+  <div>{{ currentUser$ | async }}</div>
+  <button (click)="subscribe()">Sallm</button>
+
+  <ul id="users">
+    @for (user of users; track user.id) {
+
+    <li>
+      <app-user
+        [user]="user"
+        (select)="onSelectUser($event)"
+        [selected]="user.id === SelectedUserId"
+      />
+    </li>
+    }
+    <!-- <li *ngFor="let user of users">
+      <app-user [user]="user" (select)="onSelectUser($event)" />
+    </li>
+    <li>
+      {{ count() }}
+      <button (click)="increment()">click</button>
+    </li> -->
+  </ul>
+  @if (selectedUser) { }
+  <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name"
+    >select a user to sec tasks</app-tasks
+  >
+  <!--
+  <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser!.name" />
+
+   <ng-template #fallback>
+    <p id="fallback">Select a user to see thies tasks!</p>
+  </ng-template> -->
+  <!-- @if (selectedUser) {
+  <app-tasks *ngIf="selectedUser" [name]="selectedUser.name" />
+
+  }@else {
+  <p id="fallback">Select a user to see thies tasks!</p>
+  } -->
+</main>
