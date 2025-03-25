@@ -16,6 +16,10 @@ export class TasksService {
       status: 'OPEN',
     };
     this.tasks.update((oldTasks) => [...oldTasks, newTask]);
+    console.log(this.tasks);
+    console.log(this.allTasks);
+    console.log(taskData);
+
     this.loggingService.log('Added Task with title ' + taskData.title);
   }
   updateTaskStatus(TaskId: string, newStatus: TaskStatus) {
