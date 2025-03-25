@@ -6,9 +6,9 @@ import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
-  standalone: true,
+  standalone: false,
   templateUrl: './tasks.component.html',
-  imports: [NewTaskComponent, TasksListComponent],
+
   //providers: [TasksService],
 })
 export class TasksComponent {}

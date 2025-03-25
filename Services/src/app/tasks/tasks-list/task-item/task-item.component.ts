@@ -2,12 +2,13 @@ import { Component, computed, inject, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Task, TASK_STATUS_OPTIONS, TaskStatus } from '../../task.model';
-import { TasksServiceToken } from '../../../../main';
+import { TasksServiceToken } from '../../../app.module';
+// import { TasksServiceToken } from '../../../../main';
 
 @Component({
   selector: 'app-task-item',
-  standalone: true,
-  imports: [FormsModule],
+  standalone: false,
+
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.css',
 })

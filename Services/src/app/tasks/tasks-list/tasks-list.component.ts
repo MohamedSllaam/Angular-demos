@@ -4,14 +4,15 @@ import { TaskItemComponent } from './task-item/task-item.component';
 import { TasksComponent } from '../tasks.component';
 import { TasksService } from '../tasks.service';
 import { TASK_STATUS_OPTIONS, TaskStatusOptionsProvider } from '../task.model';
-import { TasksServiceToken } from '../../../main';
+import { TasksServiceToken } from '../../app.module';
+// import { TasksServiceToken } from '../../../main';
 
 @Component({
   selector: 'app-tasks-list',
-  standalone: true,
+  standalone: false,
   templateUrl: './tasks-list.component.html',
   styleUrl: './tasks-list.component.css',
-  imports: [TaskItemComponent],
+
   providers: [TaskStatusOptionsProvider],
 })
 export class TasksListComponent {
