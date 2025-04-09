@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
 
   form = new FormGroup({
-    email: new FormControl('', {
+    email: new FormControl(initailEmailValue, {
       validators: [Validators.email, Validators.required],
     }),
     password: new FormControl('', {
