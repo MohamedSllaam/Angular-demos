@@ -2,7 +2,7 @@
   @if (isFetching()) {
   <p class="fallback-text">Ferching available places...</p>
   } @if (places()) {
-  <app-places [places]="places()!" />
+  <app-places [places]="places()!" (selectPlace)="onRemovePlace($event)" />
   } @else if (places()?.length === 0) {
   <p class="fallback-text">Unfortunately, no places could be found.</p>
   } @if ( error()) {
